@@ -1,0 +1,35 @@
+import json
+sumber = open ('data.json')
+data = json.load(sumber)
+print('''
+1. Melatih Bot
+2. Interaksi dengan Bot
+''')
+
+while True:
+    input_awal = input("masukkan kode (ketikkan 'keluar' jika ingin meninggalkan chat): ")
+    if input_awal == "1" :
+        while True :
+            a = input("User: \t")
+            if a == "keluar" :
+                break
+            else : 
+                b = input("Bot: \t")
+                data[a] = b
+                x = open('data.json',"w")
+                json.dump(data,x)
+                x.close()
+    elif input_awal == "2" :
+        while True:
+            a = input("User: \t")
+            if a == "keluar" :
+                break
+            if a in data :
+                print(f'Bot: \t {data[a]}')
+            else :
+                print("Bot: \t Itu kata yang baru")
+
+    else :
+        pass                
+
+
